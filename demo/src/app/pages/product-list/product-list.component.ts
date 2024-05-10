@@ -1,36 +1,28 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Inventor } from '../types/Inventor';
 import { CommonModule, NgFor } from '@angular/common';
-import { IProduct } from '../types/IProducts';
-import { ProductListComponent } from './pages/product-list/product-list.component';
-
+import { IProduct } from '../../../types/IProducts';
+import { FormsModule } from '@angular/forms';
 @Component({
-  selector: 'app-root',
+  selector: 'app-product-list',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, NgFor, ProductListComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  imports: [RouterOutlet, CommonModule, NgFor, FormsModule],
+  templateUrl: './product-list.component.html',
+  styleUrl: './product-list.component.css',
 })
-export class AppComponent {
-  title = 'WEB208-FPOLY';
-  student = {
-    hoten: 'Nguyễn Văn Nam',
-    gioitinh: 'Nam',
-    ngaysinh: '28/12/2004',
-    anh: 'poly.jpeg',
-    diemTB: 8.9,
-  };
-
-  inventors: Inventor[] = [
-    { id: 1, first: 'Albert', last: 'Einstein', year: 1979, passed: 1955 },
-    { id: 2, first: 'Issac', last: 'Einstein', year: 1979, passed: 1955 },
-    { id: 3, first: 'Albert', last: 'Einstein', year: 1979, passed: 1955 },
-    { id: 4, first: 'Albert', last: 'Einstein', year: 1979, passed: 1955 },
-    { id: 5, first: 'Albert', last: 'Einstein', year: 1979, passed: 1955 },
-    { id: 6, first: 'Albert', last: 'Einstein', year: 1979, passed: 1955 },
-  ];
-
+export class ProductListComponent {
+  listProduct: IProduct[] = [];
+  constructor() {}
+  ngOnInit(): void {
+    this.listProduct = this.products;
+  }
+  filterValue: string = ''; //ánh xạ tới textbox search
+  filter() {
+    //chọn sản phẩm có tên chưa tên giá trị nhập vào
+    this.products = this.listProduct.filter((p) =>
+      p.productName.includes(this.filterValue)
+    );
+  }
   products: IProduct[] = [
     {
       productId: 1,
@@ -88,4 +80,19 @@ export class AppComponent {
         'http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png',
     },
   ];
+
+  setterValue: string = ''; // Giá trị của textbox search
+  toggleImageVisibility(product: IProduct) {
+    product.imageVisible = !product.imageVisible;
+  }
+  set setter(value: string) {
+    this.setterValue = value;
+    // Ẩn/hiện hình ảnh dựa trên giá trị của setterValue và trạng thái imageVisible
+    this.products.forEach((p) => {
+      p.imageUrl =
+        p.imageUrl.includes(this.setterValue) && p.imageVisible
+          ? p.imageUrl
+          : '';
+    });
+  }
 }

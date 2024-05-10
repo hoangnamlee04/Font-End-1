@@ -5,5 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container1 border-2 mt-10 w-80 ml-10">
+      <div class="caption">
+        <h4 class="font-bold ml-20">Thông tin sinh viên</h4>
+        <img class="ml-14 mt-4" src="assets/images/{{ student.anh }}" alt="" />
+      </div>
+      <ul class="ml-20 mt-6 mb-10">
+        <li><span>Họ tên: </span>{{ student.hoten }}</li>
+        <li><span>Ngày sinh: </span>{{ student.ngaysinh }}</li>
+        <li><span>Giới tính: </span>{{ student.gioitinh }}</li>
+        <li><span>Điểm trung bình: </span>{{ student.diemTB }}</li>
+      </ul>
+    </div>
+
+    <div class="container2 mt-20">
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+          <thead class="ltr:text-left rtl:text-right">
+            <tr>
+              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                First
+              </th>
+              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Last
+              </th>
+              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Year
+              </th>
+              <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Passed
+              </th>
+            </tr>
+          </thead>
+
+          <tbody
+            class="divide-y divide-gray-200"
+            *ngFor="let inventor of inventors"
+          >
+            <tr>
+              <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                {{ inventor.first }}
+              </td>
+              <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+                {{ inventor.last }}
+              </td>
+              <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+                {{ inventor.year }}
+              </td>
+              <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+                {{ inventor.passed }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <app-product-list></app-product-list>
+  </body>
 </html>
