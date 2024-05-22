@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../Types/Product';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../product.service';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
@@ -15,13 +16,23 @@ export class ProductDetailsComponent implements OnInit {
   product: Product | undefined;
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.productID = this.route.snapshot.params['id'];
     console.log(this.productID);
-    this.productService.getProductById(this.productID).subscribe((p) => {
-      this.product = p;
-    });
+    this.productService
+      .getProductById(this.productID)
+      .pipe(
+        catchError((error) => {
+          console.error('Product not found', error);
+          this.router.navigate(['/not-found']);
+          return of(undefined); // Return an observable with undefined value
+        })
+      )
+      .subscribe((p) => {
+        this.product = p;
+      });
   }
 }

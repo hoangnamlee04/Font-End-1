@@ -31,7 +31,7 @@
     <h2
       class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
     >
-      Đăng nhập tài khoản của bạn
+      Đăng ký tài khoản
     </h2>
   </div>
 
@@ -62,13 +62,25 @@
             class="block text-sm font-medium leading-6 text-gray-900"
             >Mật khẩu</label
           >
-          <div class="text-sm">
-            <a
-              href="#"
-              class="font-semibold text-indigo-600 hover:text-indigo-500"
-              >Quên mật khẩu</a
-            >
-          </div>
+        </div>
+        <div class="mt-2">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between">
+          <label
+            for="password"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Nhập lại mật khẩu
+          </label>
         </div>
         <div class="mt-2">
           <input
@@ -87,17 +99,17 @@
           type="submit"
           class="flex w-full justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Đăng nhập
+          Đăng ký
         </button>
       </div>
     </form>
 
     <p class="mt-10 text-center text-sm text-gray-500">
-      Bạn chưa có tài khoản?
+      Bạn đã có tài khoản?
       <a
-        routerLink="/register"
+        routerLink="/login"
         class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-        >Đăng ký ngay</a
+        >Đăng nhập</a
       >
     </p>
   </div>
