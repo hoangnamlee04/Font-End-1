@@ -23,7 +23,7 @@ export class ProductDetailsComponent implements OnInit {
     this.productID = this.route.snapshot.params['id'];
     console.log(this.productID);
     this.productService
-      .getProductById(this.productID)
+      .detailProduct(this.productID)
       .pipe(
         catchError((error) => {
           console.error('Product not found', error);

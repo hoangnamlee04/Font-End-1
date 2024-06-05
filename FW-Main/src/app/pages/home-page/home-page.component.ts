@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
   products: Product[] | undefined;
   constructor(private productService: ProductService) {}
   ngOnInit() {
-    this.productService.getProducts().subscribe((products) => {
+    this.productService.getAllProducts().subscribe((products) => {
       this.products = products;
     });
   }

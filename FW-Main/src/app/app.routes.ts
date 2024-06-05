@@ -8,6 +8,8 @@ import { LayoutClientComponent } from './components/layout-client/layout-client.
 import { LayoutAdminComponent } from './components/layout-admin/layout-admin.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AddProductComponent } from './pages/admin/products/add/add.component';
+import { EditProductComponent } from './pages/admin/products/edit/edit.component';
 
 export const routes: Routes = [
   {
@@ -33,7 +35,14 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: LayoutAdminComponent,
-    children: [{ path: '', component: DashboardComponent }],
+    children: [
+      { path: '', component: DashboardComponent },
+      {
+        path: 'product-add',
+        component: AddProductComponent,
+      },
+      { path: 'product-edit/:id', component: EditProductComponent },
+    ],
   },
 
   {

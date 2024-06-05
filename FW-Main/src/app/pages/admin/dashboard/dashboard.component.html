@@ -23,6 +23,7 @@
         <th class="px-4 py-2 font-medium text-gray-900">Code</th>
         <th class="px-4 py-2 font-medium text-gray-900">Available</th>
         <th class="px-4 py-2 font-medium text-gray-900">Price</th>
+        <th class="px-4 py-2 font-medium text-gray-900">description</th>
         <th class="px-4 py-2 font-medium text-gray-900">5 Star Rating</th>
         <th class="px-4 py-2 font-medium text-gray-900">Action</th>
       </tr>
@@ -33,7 +34,7 @@
         <td class="px-4 py-2 text-gray-700">
           <a href="#">
             <img
-              class="w-[150px] h-[90px]"
+              class="w-[300px] h-[120px]"
               [src]="product.thumbnail"
               alt="{{ product.title }}"
             />
@@ -44,6 +45,7 @@
         </td>
         <td class="px-4 py-2 text-gray-700">{{ product.stock }}</td>
         <td class="px-4 py-2 text-gray-700">{{ product.price }}</td>
+        <td class="px-4 py-2 text-gray-700">{{ product.description }}</td>
         <td class="px-4 py-2 text-gray-700">
           <div class="px-2 flex items-center">
             <div
@@ -68,7 +70,7 @@
             >View</a
           >
           <a
-            href="ádsd"
+            [routerLink]="['/admin/product-edit', product.id]"
             class="mr-2 inline-block px-3 py-1 text-sm font-medium text-indigo-600 border border-indigo-600 rounded-md hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
             >Sửa</a
           >

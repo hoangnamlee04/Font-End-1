@@ -23,7 +23,7 @@ export class DashboardComponent {
 
   // ngOnInit
   ngOnInit() {
-    this.productService.getProducts().subscribe((data) => {
+    this.productService.getAllProducts().subscribe((data) => {
       this.products = data;
       this.listProduct = this.products; // Gán danh sách sản phẩm cho listProduct sau khi nhận dữ liệu
       this.filter(); // Gọi phương thức filter() ngay sau khi nhận dữ liệu sản phẩm
