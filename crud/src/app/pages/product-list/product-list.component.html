@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Image</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(product of products; track product.id){
+    <tr>
+      <th scope="row">{{ product.id }}</th>
+      <td>{{ product.title }}</td>
+      <td><img [src]="product.image" width="100px" alt="" /></td>
+      <td>{{ product.price }}</td>
+      <a [routerLink]="['/product/edit', product.id]">Edit</a>
+      <button (click)="handleDelete(product.id)">Delete</button>
+    </tr>
+    }
+  </tbody>
+</table>
