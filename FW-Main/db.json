@@ -621,5 +621,16 @@
       "id": 31
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "vannamok04@gmail.com",
+      "password": "$2a$10$j/3XiruoVp79I1w6Gt5aouv0qWrIucOXzZWfSDQ4dD2pAv/V22wbm",
+      "id": 1
+    },
+    {
+      "email": "namnvph35997@fpt.edu.vn",
+      "password": "$2a$10$5zs8tBcwHaiRLOPK5razLupH.FCIgOr4cyuScSzT97YL19TII6ESi",
+      "id": 2
+    }
+  ]
 }

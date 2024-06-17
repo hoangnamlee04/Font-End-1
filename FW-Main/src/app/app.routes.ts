@@ -10,10 +10,12 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { RegisterComponent } from './pages/register/register.component';
 import { AddProductComponent } from './pages/admin/products/add/add.component';
 import { EditProductComponent } from './pages/admin/products/edit/edit.component';
+import { adminGuard } from './admin.guard';
 
 export const routes: Routes = [
   {
     path: '',
+    canActivate: [adminGuard],
     component: LayoutClientComponent,
     children: [
       { path: '', component: HomePageComponent },
@@ -34,6 +36,7 @@ export const routes: Routes = [
 
   {
     path: 'admin',
+    canActivate: [adminGuard],
     component: LayoutAdminComponent,
     children: [
       { path: '', component: DashboardComponent },

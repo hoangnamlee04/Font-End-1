@@ -9,42 +9,36 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../auth.service';
-
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   authService = inject(AuthService);
   constructor(private router: Router) {}
+
   registerForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
-    password: new FormControl('', [
-      Validators.minLength(6),
-      Validators.required,
-    ]),
+    password: new FormControl('', [Validators.minLength(6), Validators.required]),
   });
-  Message: string | null = null;
+
   handleSubmit() {
-    console.log(this.registerForm.value);
-    this.authService.login(this.registerForm.value).subscribe({
-      next: (data) => {
-        localStorage.setItem(
-          'token',
-          (data as { accessToken: string }).accessToken
-        );
-        this.Message = 'Đăng nhập thành công!';
-        setTimeout(() => {
+    if (window.confirm('dang ky thanh cong -login')) {
+      this.authService.login(this.registerForm.value).subscribe({
+        next: (data) => {
+          localStorage.setItem(
+            'token',
+            (data as { accessToken: string }).accessToken
+          );
           this.router.navigate(['/']);
-        }, 2000);
-      },
-      error: (error) => {
-        // show error
-        console.error(error.message);
-      },
-    });
+        },
+        error: (error) => {
+          console.log(error.message);
+        },
+      });
+    }
   }
 }
