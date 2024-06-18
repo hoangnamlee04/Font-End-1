@@ -19,6 +19,16 @@
           class="form-control"
           name="email"
         />
+        <small
+          *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched"
+          class="text-danger"
+          >Vui lòng nhập email
+        </small>
+        <small
+          *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched"
+          class="text-danger"
+          >Vui lòng nhập lại email
+        </small>
       </div>
 
       <div class="mb-3">
@@ -29,6 +39,16 @@
           class="form-control"
           name="password"
         />
+        <small
+          *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched"
+          class="text-danger"
+          >Vui lòng nhập mật khẩu
+        </small>
+        <small
+          *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched"
+          class="text-danger"
+          >Mật khẩu phải trên 6 ký tự
+        </small>
       </div>
       <div class="d-grid">
         <button type="submit" class="btn btn-primary btn-block">

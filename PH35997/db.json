@@ -1,18 +1,11 @@
 {
   "products": [
     {
-      "name": "ggggg123",
+      "name": "1asfa",
       "image": "https://picsum.photos/200/200",
       "quantity": 2,
       "active": true,
       "id": 5
-    },
-    {
-      "name": "asdffa",
-      "image": "https://d1hjkbq40fs2x4.cloudfront.net/2017-08-21/files/landscape-photography_1645-t.jpg",
-      "quantity": 4,
-      "active": false,
-      "id": 6
     }
   ],
   "users": [
@@ -25,6 +18,11 @@
       "email": "vannamok047@gmail.com",
       "password": "$2a$10$d4zDJEHLu.EOuVR7DgWFJOySRrr6C5AHG90KOndeWoa6gNvN8nqS2",
       "id": 2
+    },
+    {
+      "email": "vasasdas@gmail.com",
+      "password": "$2a$10$KWL26tCKqoeCAaOER0qNju8IzagnEEu.I9ymL779dOBQ92EBhQJxu",
+      "id": 3
     }
   ]
 }
