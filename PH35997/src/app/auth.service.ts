@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Product } from './types/Product';
 import { Register } from './types/Auth';
 
 @Injectable({

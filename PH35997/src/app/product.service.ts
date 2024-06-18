@@ -1,4 +1,3 @@
-import { ListComponent } from './pages/list/list.component';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Product } from './types/Product';
